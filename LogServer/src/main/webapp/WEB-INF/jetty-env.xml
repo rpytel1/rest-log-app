@@ -1,0 +1,14 @@
+<Configure class="org.eclipse.jetty.webapp.WebAppContext">
+    <New id="DSTix" class="org.eclipse.jetty.plus.jndi.Resource">
+        <Arg>jdbc/DSTix</Arg>
+        <Arg>
+            <New class="org.apache.commons.dbcp.BasicDataSource">
+                <Set name="driverClassName">com.mysql.jdbc.Driver</Set>
+                <Set name="url">jdbc:mysql://localhost:3306/eventlogdb</Set>
+                <Set name="username">newuser</Set>
+                <Set name="password">localhost123</Set>
+                <Set name="validationQuery">SELECT 1</Set>
+            </New>
+        </Arg>
+    </New>
+</Configure>

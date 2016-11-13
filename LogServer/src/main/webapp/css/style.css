@@ -1,0 +1,43 @@
+body {
+    color: whitesmoke;
+}
+
+.app {
+    background: rgba(42, 199, 128, 0.5);
+    padding:10px;
+    margin-left:100px;
+    width: 650px;
+}
+
+.section {
+    background: rgba(42, 199, 108, 0.6);
+    margin: 10px;
+    padding:5px;
+}
+
+.my-input {
+    margin-left: 15px;
+}
+
+.view-table {
+    border: 1px solid green;
+}
+
+.view-table tr td {
+    border: 1px solid green;
+}
+
+a {
+    color: darkgreen;
+}
+
+a:hover {
+    color: green;
+}
+.button{
+    margin-left:20px;
+    margin-top:4px;
+}
+.table-no-broder tr td{
+    border:none;
+}

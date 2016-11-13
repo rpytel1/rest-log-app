@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - eventlogdb@localhost" uuid="135d05ec-d46f-451c-af9d-6eaa68e27f70">
+      <secret-storage>master_key</secret-storage>
+      <user-name>rpytel</user-name>
+      <schema-pattern>eventlogdb.*</schema-pattern>
+      <default-schemas>eventlogdb.*</default-schemas>
+    </data-source>
+    <data-source name="MySQL - eventlogdb@localhost [2]" uuid="659f7dae-46cc-4b21-b100-83221a558b2a">
+      <secret-storage>master_key</secret-storage>
+      <user-name>newuser</user-name>
+    </data-source>
+  </component>
+</project>

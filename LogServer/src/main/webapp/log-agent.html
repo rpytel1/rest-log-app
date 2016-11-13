@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myapp">
+<head>
+    <meta charset="UTF-8">
+    <title>Log Agent</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <script type="text/javascript" src="lib/angular.min.js"></script>
+    <script type="text/javascript" src="lib/angular-resource.min.js"></script>
+</head>
+
+<body ng-controller="logViewerController">
+
+<script type="text/javascript" src="js/logviewer-controller.js"></script>
+<div class="app">
+    <h1>LogAgent</h1><br/>
+    <div class="section">
+        <label>Podaj nr dziennika
+            <input class="my-input" ng-model="model.logId" type="number"/> </label><br/>
+        <button class="button" ng-click="getLogRecords()">Click!</button>
+    </div>
+    <div class="section">
+        <h2>Dodawanie nowego log record</h2><br/>
+
+        <label>Typ zdarzenia w dzienniku:{{eventType}}</label><br/>
+        <label>Identyfikator zdarzenia: <input class="my-input" type="text" ng-model="logrecord.eventId"
+                                               placeholder="identyfikator zdarzenia"/> <br/>
+        </label>
+        <table style="text-align: right">
+            <tr>
+                <td><p>Podaj typ zdarzenia: </p></td>
+                <td>
+                    <div ng-repeat="l in getNumber() track by $index">
+                        <input class="my-input" type="text" ng-model="logrecord.type[$index].descritpion"
+                               placeholder="typ zdarzenia"/>
+                        <br/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button class="button" type="button" ng-click="addLogRecord()">Wyslij</button>
+                    <br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="section">
+        <h2>Dodanie nowego dziennika:</h2><br/>
+        <table style="text-align: right">
+            <tr>
+                <label>
+                    <td>logId:</td>
+                    <td><input class="my-input" type="number" ng-model="newEvent.logId"/></td>
+                </label><br/></tr>
+            <tr>
+                <label>
+                    <td>ilosc pol charakterystycznych dla typu:</td>
+                    <td><input class="my-input" type="number"
+                               ng-model="newEvent.newSize"/></td>
+                </label> <br/>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button class="button" type="button" ng-click="addNewEvent()">Click!</button>
+                </td>
+            </tr>
+        </table>
+        <br/> <br/>
+        <a href="log-viewer.html">Go to Log Viewer</a>
+        <a href="index.html"> Back to Home page</a>
+    </div>
+</div>
+</body>
+</html>

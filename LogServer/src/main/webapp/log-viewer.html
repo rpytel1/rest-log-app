@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myapp">
+<head>
+    <meta charset="UTF-8">
+    <title>LogViewer</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <script type="text/javascript" src="lib/angular.min.js"></script>
+    <script type="text/javascript" src="lib/angular-resource.min.js"></script>
+</head>
+
+<body ng-controller="logViewerController">
+<script type="text/javascript" src="js/logviewer-controller.js"></script>
+<div class="app">
+    <h1>LogViewer</h1><br/>
+    <div class="section">
+        <label>Podaj nr dziennika
+            <input ng-model="model.logId" type="number"/> </label><br/>
+        <button class="button" ng-click="getLogRecords()">Click!</button>
+    </div>
+    <div class="section">
+        <h2>Filtrowanie</h2>
+        <br/>
+        <table class="table-no-broder" style="text-align: right">
+            <tr>
+                <label>
+                    <td>Type</td>
+                    <td><input ng-model="search.type">
+                </label><br></td>
+            </tr>
+            <tr>
+                <label>
+                    <td>Date</td>
+                    <td><input ng-model="search.date">
+                </label><br></td></tr>
+            <tr><label>
+                <td>Id zdarzenia</td>
+                <td><input ng-model="search.eventId"></td>
+            </label><br/></tr>
+            <tr><label>
+                <td>Id</td>
+                <td><input ng-model="search.id"></td>
+            </label><br/></tr>
+        </table>
+        <table class="view-table">
+            <tr>
+                <th>
+                    <button ng-click="sortBy('id')">Id</button>
+                    <span ng-show="propertyName === 'id'" ng-class="{reverse: reverse}"></span>
+                </th>
+                <th>
+                    <button ng-click="sortBy('date')">Date</button>
+                    <span ng-show="propertyName === 'date'" ng-class="{reverse: reverse}"></span>
+                </th>
+                <th>
+                    <button ng-click="sortBy('eventId')">Identyfikator zdarzenia</button>
+                    <span ng-show="propertyName === 'date'" ng-class="{reverse: reverse}"></span></th>
+                <th>
+                    Type
+                </th>
+
+
+            </tr>
+            <tr ng-repeat="lrObj in listLogRecords |filter:search|orderBy:propertyName:reverse">
+                <td>{{lrObj.id}}</td>
+                <td>{{lrObj.time}}</td>
+                <td>{{lrObj.eventId}}</td>
+                <td ng-repeat="l in lrObj.type track by $index">{{l}}</td>
+                <td>
+                    <button type="button" ng-click="deleteLogRecord(lrObj)">Usun</button>
+                </td>
+            </tr>
+        </table>
+
+        <br/>
+        <br/> <br/>
+        <a href="log-agent.html">Go to Log Agent</a>
+        <a href="index.html"> Back to Home page</a>
+    </div>
+</div>
+</body>
+</html>
